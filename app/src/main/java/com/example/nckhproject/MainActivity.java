@@ -39,14 +39,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     View headerView;
     TextView navUserName;
     ImageView navImgUser;
-    String User_name;
-
+    MyShared_Class myShared_class;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        myShared_class = new MyShared_Class(this);
 
         drawerLayout = findViewById(R.id.layout_main);
         navigationView = findViewById(R.id.nav_view);
@@ -91,6 +90,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 break;
             case R.id.nav_Logout:
+                myShared_class.clear();
+                intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
                 break;
 
         }
