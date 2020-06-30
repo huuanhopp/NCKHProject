@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "38711785858",
+    "firebase_url": "https://nckhproject.firebaseio.com",
+    "project_id": "nckhproject",
+    "storage_bucket": "nckhproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38711785858:android:354f073e7f4a17fdfb779b",
+        "android_client_info": {
+          "package_name": "com.example.nckhproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38711785858-baj8hnbqb0l7qnhvg9acpfs1nj83tnfs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMhPT3C3Ykcc40EyLr7b2erP0GJGeExYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38711785858-baj8hnbqb0l7qnhvg9acpfs1nj83tnfs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
