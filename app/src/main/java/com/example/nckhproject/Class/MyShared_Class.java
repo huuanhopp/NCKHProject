@@ -1,4 +1,4 @@
-package com.example.nckhproject;
+package com.example.nckhproject.Class;
 
 import android.content.Context;
 import android.content.SharedPreferences;

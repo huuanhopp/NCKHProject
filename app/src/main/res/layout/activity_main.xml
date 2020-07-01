@@ -34,17 +34,66 @@
                 tools:targetApi="lollipop" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="15dp"
-            android:orientation="horizontal"
-            android:paddingTop="5dp">
-
-
-
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <FrameLayout
+                android:id="@+id/frmContent"
+                android:layout_width="match_parent"
+                android:layout_height="553dp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+                <Button
+                    android:id="@+id/btnHome"
+                    android:background="#5FB1F3"
+                    android:textSize="13dp"
+                    android:layout_gravity="bottom"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Trang chủ"
+                    />
+                <Button
+                    android:id="@+id/btnMessage"
+                    android:background="#5FB1F3"
+                    android:textSize="13dp"
+                    android:layout_gravity="bottom"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Tin nhắn"
+                    />
+                <Button
+                    android:id="@+id/btnHistory"
+                    android:background="#5FB1F3"
+                    android:textSize="13dp"
+                    android:layout_gravity="bottom"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Lịch sử"
+                    />
+                <Button
+                    android:id="@+id/btnProfile"
+                    android:background="#5FB1F3"
+                    android:textSize="13dp"
+                    android:layout_gravity="bottom"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Cá nhân"
+                    />
+            </LinearLayout>
         </LinearLayout>
+
+
+
+
+
+
     </LinearLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

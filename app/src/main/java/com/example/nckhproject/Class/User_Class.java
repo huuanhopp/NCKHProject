@@ -1,4 +1,4 @@
-package com.example.nckhproject;
+package com.example.nckhproject.Class;
 
 public class User_Class {
     private String User_Name;
