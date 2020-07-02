@@ -22,76 +22,37 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/tool_bar"
-                android:layout_width="50dp"
-                android:layout_height="60dp"
-                tools:targetApi="lollipop" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
             <FrameLayout
                 android:id="@+id/frmContent"
                 android:layout_width="match_parent"
-                android:layout_height="553dp"
-                />
+                android:layout_height="580dp"
+                android:layout_marginTop="30dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
                 android:gravity="center"
-                >
-                <Button
-                    android:id="@+id/btnHome"
-                    android:background="#5FB1F3"
-                    android:textSize="13dp"
-                    android:layout_gravity="bottom"
-                    android:layout_width="100dp"
+                android:orientation="horizontal">
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/nav_buttom"
+                    app:labelVisibilityMode="labeled"
+                    app:menu="@menu/nav_menubuttom"
+                    android:background="#fff"
+                    app:itemTextColor="#3978E3"
+                    app:itemIconTint="#3C2D5E"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Trang chủ"
-                    />
-                <Button
-                    android:id="@+id/btnMessage"
-                    android:background="#5FB1F3"
-                    android:textSize="13dp"
-                    android:layout_gravity="bottom"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="Tin nhắn"
-                    />
-                <Button
-                    android:id="@+id/btnHistory"
-                    android:background="#5FB1F3"
-                    android:textSize="13dp"
-                    android:layout_gravity="bottom"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="Lịch sử"
-                    />
-                <Button
-                    android:id="@+id/btnProfile"
-                    android:background="#5FB1F3"
-                    android:textSize="13dp"
-                    android:layout_gravity="bottom"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="Cá nhân"
-                    />
+                    android:layout_gravity="bottom">
+
+                </com.google.android.material.bottomnavigation.BottomNavigationView>
             </LinearLayout>
         </LinearLayout>
-
-
-
-
 
 
     </LinearLayout>

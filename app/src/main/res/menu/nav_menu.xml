@@ -18,21 +18,9 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_profile"
-                    android:icon="@drawable/profile"
-                    android:title="Profile" />
-                <item
-                    android:id="@+id/nav_Login"
-                    android:icon="@drawable/login"
-                    android:title="Login" />
-                <item
                     android:id="@+id/nav_Logout"
                     android:icon="@drawable/logout_icon"
                     android:title="Logout" />
-                <item
-                    android:id="@+id/change_password"
-                    android:icon="@drawable/chang_password"
-                    android:title="Chang Password"/>
             </group>
         </menu>
     </item>
@@ -42,13 +30,14 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/share"
-                    android:icon="@drawable/share"
-                    android:title="Share" />
+                    android:id="@+id/nav_map"
+                    android:icon="@drawable/about"
+                    android:title="Map"/>
                 <item
                     android:id="@+id/about"
                     android:icon="@drawable/about"
                     android:title="About" />
+
             </group>
         </menu>
     </item>

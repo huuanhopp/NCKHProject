@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginTop="50dp"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <Button
-        android:background="#FFC400"
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="68dp"
+        android:background="#FFC400"
         android:text="Cổng vào"
         android:textAllCaps="false"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnA1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="168dp"
         android:background="@drawable/custom_btn_a1"
         android:text="A1"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,11 +34,23 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:background="#A3A2A8"
+        android:id="@+id/button8"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="216dp"
+        android:text="Sân vận động"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnA3"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="168dp"
         android:background="@drawable/custom_btn_a3"
         android:text="A3"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,11 +58,11 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnA4"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/custom_btn_a4"
         android:text="A4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,11 +70,11 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnA6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="296dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="356dp"
         android:background="@drawable/custom_btn_a6"
         android:text="A6"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,15 +82,26 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnA5"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="376dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginTop="356dp"
+        android:layout_marginEnd="100dp"
         android:background="@drawable/custom_btn_a5"
         android:text="A5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="4dp"
+        android:text="Vui lòng chọn tòa nhà"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
