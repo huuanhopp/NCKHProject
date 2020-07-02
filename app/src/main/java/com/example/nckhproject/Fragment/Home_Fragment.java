@@ -1,5 +1,6 @@
 package com.example.nckhproject.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.nckhproject.Activity.A3Activity;
 import com.example.nckhproject.R;
 
 public class Home_Fragment extends Fragment {
@@ -31,6 +33,13 @@ public class Home_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(view.getContext(), "Tòa nhà này không dành cho sinh viên!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnA3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), A3Activity.class);
+                startActivity(intent);
             }
         });
     }
