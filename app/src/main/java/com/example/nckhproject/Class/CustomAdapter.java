@@ -41,7 +41,18 @@ public class CustomAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return 0;
     }
-
+    public String getStringPrice(long Price)
+    {
+        StringBuilder args = new StringBuilder(String.valueOf(Price)).reverse();
+        String res = "";
+        for(int i = 0; i < args.length(); i ++)
+        {
+            res += args.charAt(i);
+            if((i+1)%3 == 0 && i!= args.length()-1)
+                res += ",";
+        }
+        return new StringBuffer(res).reverse().toString();
+    }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
@@ -60,7 +71,8 @@ public class CustomAdapter extends BaseAdapter {
         {
             viewHolder = (ViewHolder)view.getTag();
         }
-        String price = list_room.get(position).getPrice() + " VNĐ/ " + list_room.get(position).getDate() + " tháng";
+
+        String price = getStringPrice(list_room.get(position).getPrice()) + " VNĐ/ " + list_room.get(position).getDate() + " tháng";
         String person = list_room.get(position).getPerson_Now().size() + "/" + list_room.get(position).getPerson_Max();
         viewHolder.txtNameofRoom.setText(list_room.get(position).getName());
         viewHolder.txtPriceofRoom.setText(price);

@@ -6,7 +6,7 @@ public class Room_Class {
     private String Name;
     private long Price;
     private long Date;
-    private ArrayList<String> Person_Now;
+    private ArrayList<String> Person_Now = new ArrayList<>();
     private int Person_Max;
 
     public Room_Class() {
@@ -59,4 +59,11 @@ public class Room_Class {
     public void setPerson_Max(int person_Max) {
         Person_Max = person_Max;
     }
+
+    public void AddUser(String Email)
+    {
+        this.Person_Now.add(Email);
+    }
+
+
 }
