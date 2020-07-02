@@ -7,9 +7,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -36,49 +36,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TextView navUserEmail;
     ImageView navImgUser;
     MyShared_Class myShared_class;
-
+    BottomNavigationView navbuttom;
+    int typeButtonNav = 1;
 
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        BottomNavigationView navbuttom = findViewById(R.id.nav_buttom);
-
-        BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment selectedFragment = null;
-                switch (item.getItemId())
-                {
-                    case R.id.nav_buttom_home:
-                        selectedFragment = new Home_Fragment();
-                        break;
-                    case R.id.nav_buttom_history:
-                        selectedFragment = new History_Fragment();
-                        break;
-                    case R.id.nav_buttom_message:
-                        selectedFragment = new Message_Fragment();
-                        break;
-                    case R.id.nav_buttom_profile:
-                        selectedFragment = new Profile_Fragment();
-                        break;
-                }
-                getSupportFragmentManager().beginTransaction()
-                        .setCustomAnimations(R.anim.left_to_right, R.anim.right_to_left, R.anim.exit_left_to_right, R.anim.exit_right_to_left)
-                        .replace(R.id.frmContent, selectedFragment).commit();
 
 
 
-                return true;
-            }
-        };
-        navbuttom.setOnNavigationItemSelectedListener(navListener);
         myShared_class = new MyShared_Class(this);
         FramentManagerconstruction(new Home_Fragment());
         Anhxa();
-        Toolbar_Nagavition();
-//        Listener();
+//        Toolbar_Nagavition();
+        Listener();
         Init();
 
     }
@@ -88,50 +61,64 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navUserName.setText(myShared_class.get("Name"));
     }
 
-//    private void Listener() {
-//        btnHome.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FramentManagerconstruction(new Home_Fragment());
-//            }
-//        });
-//        btnProfile.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FramentManagerconstruction(new Profile_Fragment());
-//            }
-//        });
-//        btnMessage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FramentManagerconstruction(new Message_Fragment());
-//            }
-//        });
-//        btnHistory.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FramentManagerconstruction(new History_Fragment());
-//            }
-//        });
-//    }
+    private void Listener() {
+        BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment selectedFragment = null;
+                int type = 1;
+                switch (item.getItemId())
+                {
+                    case R.id.nav_buttom_home:
+                        selectedFragment = new Home_Fragment();
+                        type = 1;
+                        break;
+                    case R.id.nav_buttom_history:
+                        selectedFragment = new History_Fragment();
+                        type = 2;
+                        break;
+                    case R.id.nav_buttom_message:
+                        selectedFragment = new Message_Fragment();
+                        type = 3;
+                        break;
+                    case R.id.nav_buttom_profile:
+                        selectedFragment = new Profile_Fragment();
+                        type =4;
+                        break;
+                }
+                if(type != typeButtonNav)
+                {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frmContent, selectedFragment)
+                            .addToBackStack(null)
+                            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                            .commit();
+                    typeButtonNav = type;
+                }
+                return true;
+            }
+        };
+        navbuttom.setOnNavigationItemSelectedListener(navListener);
+    }
 
     private void FramentManagerconstruction(Fragment a) {
         getSupportFragmentManager().beginTransaction().replace(R.id.frmContent, a).addToBackStack(null).commit();
 
 
     }
-
-    private void Toolbar_Nagavition() {
-
-        //menu
-        navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(MainActivity.this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
-    }
+//
+//    private void Toolbar_Nagavition() {
+//
+//        //menu
+//        navigationView.bringToFront();
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(MainActivity.this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawerLayout.addDrawerListener(toggle);
+//        toggle.syncState();
+//        navigationView.setNavigationItemSelectedListener(this);
+//    }
 
     private void Anhxa() {
+        navbuttom = findViewById(R.id.nav_buttom);
         drawerLayout = findViewById(R.id.layout_main);
         navigationView = findViewById(R.id.nav_view);
 
