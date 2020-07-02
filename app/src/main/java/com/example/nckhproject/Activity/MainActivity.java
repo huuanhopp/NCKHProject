@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         myShared_class = new MyShared_Class(this);
         FramentManagerconstruction(new Home_Fragment());
         Anhxa();
-//        Toolbar_Nagavition();
+        Nagavition();
         Listener();
         Init();
 
@@ -107,15 +107,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 //
-//    private void Toolbar_Nagavition() {
-//
-//        //menu
-//        navigationView.bringToFront();
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(MainActivity.this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawerLayout.addDrawerListener(toggle);
-//        toggle.syncState();
-//        navigationView.setNavigationItemSelectedListener(this);
-//    }
+    private void Nagavition() {
+
+        //menu
+        navigationView.bringToFront();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(MainActivity.this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+    }
 
     private void Anhxa() {
         navbuttom = findViewById(R.id.nav_buttom);
