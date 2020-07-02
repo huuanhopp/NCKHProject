@@ -1,6 +1,7 @@
 package com.example.nckhproject.Class;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import com.example.nckhproject.R;
 
 import java.util.List;
+
+
 
 public class CustomAdapter extends BaseAdapter {
     Context context;
@@ -62,6 +65,24 @@ public class CustomAdapter extends BaseAdapter {
         viewHolder.txtNameofRoom.setText(list_room.get(position).getName());
         viewHolder.txtPriceofRoom.setText(price);
         viewHolder.txtPerson.setText(person);
+        int size = list_room.get(position).getPerson_Now().size();
+        if(size <= 2)
+        {
+            viewHolder.txtPerson.setBackgroundColor(Color.GRAY);
+        }
+        else if(size <= 4)
+        {
+            viewHolder.txtPerson.setBackgroundColor(Color.GREEN);
+        }
+        else if(size <= 6)
+        {
+            viewHolder.txtPerson.setBackgroundColor(Color.BLUE);
+        }
+        else
+        {
+            viewHolder.txtPerson.setBackgroundColor(Color.RED);
+        }
+
         return view;
     }
 }
