@@ -15,12 +15,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.nckhproject.Class.MyShared_Class;
+import com.example.nckhproject.Class.User_Class;
 import com.example.nckhproject.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.microsoft.graph.models.extensions.User;
 
 public class Profile_Fragment extends Fragment {
     EditText edtPhoneNum;
@@ -32,6 +34,7 @@ public class Profile_Fragment extends Fragment {
     TextView txtDOR;
     TextView txtED;
     MyShared_Class myShared_class;
+    User_Class user;
     View view;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     @Nullable
@@ -40,18 +43,53 @@ public class Profile_Fragment extends Fragment {
         view = inflater.inflate(R.layout.profile_fragment, container, false);
         myShared_class = new MyShared_Class(view.getContext());
         Anhxa();
-        Listener();
+        GetData();
         return view;
     }
 
+    private void GetData() {
+        databaseReference.child("User").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                User_Class user_class = dataSnapshot.getValue(User_Class.class);
+                if(user_class.getUser_Email().equals(myShared_class.getString("Email")) == true)
+                {
+                    user = new User_Class();
+                    user = user_class;
+                    Listener();
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
     private void Listener() {
-        txtEmail.setText(myShared_class.getString("Email"));
-        txtName.setText(myShared_class.getString("Name"));
-        txtDOR.setText(myShared_class.getString("Date_of_Registration"));
-        txtED.setText(myShared_class.getString("Expiration_Date"));
-        edtPhoneNum.setText(myShared_class.getString("PhoneNum"));
-        edtAddress.setText(myShared_class.getString("Address"));
-        if(myShared_class.getBoolean("Active") == true)
+        txtEmail.setText(user.getUser_Email());
+        txtName.setText(user.getUser_Name());
+        txtDOR.setText(user.getUser_Date_of_Registration());
+        txtED.setText(user.getUser_Expiration_Date());
+        edtPhoneNum.setText(user.getUser_PhoneNum());
+        edtAddress.setText(user.getUser_Address());
+        if(user.getActive() == true)
         {
             btnActive.setText("Đã kích hoạt");
         }
@@ -75,10 +113,15 @@ public class Profile_Fragment extends Fragment {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final User_Class user = new User_Class(txtName.getText().toString(), txtEmail.getText().toString(), edtPhoneNum.getText().toString(), edtAddress.getText().toString(), txtDOR.getText().toString(), txtED.getText().toString(), myShared_class.getBoolean("Active"));
                 databaseReference.child("User").addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                        User_Class user_class = dataSnapshot.getValue(User_Class.class);
+                        if(user_class.getUser_Email().equals(myShared_class.getString("Email")) == true)
+                        {
+                            databaseReference.child("User").child(dataSnapshot.getKey()).setValue(user);
+                        }
                     }
 
                     @Override
@@ -101,6 +144,7 @@ public class Profile_Fragment extends Fragment {
 
                     }
                 });
+                Toast.makeText(view.getContext(), "Cập nhật thông tin thành công!", Toast.LENGTH_SHORT).show();
             }
         });
     }
