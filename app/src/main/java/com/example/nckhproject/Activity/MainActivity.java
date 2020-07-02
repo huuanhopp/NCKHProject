@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void Init() {
-        navUserEmail.setText(myShared_class.get("Email"));
-        navUserName.setText(myShared_class.get("Name"));
+        navUserEmail.setText(myShared_class.getString("Email"));
+        navUserName.setText(myShared_class.getString("Name"));
     }
 
     private void Listener() {

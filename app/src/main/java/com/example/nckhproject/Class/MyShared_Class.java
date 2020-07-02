@@ -12,9 +12,14 @@ public class MyShared_Class {
                 Context.MODE_PRIVATE);
     }
 
-    public void put(String key, String value) {
+    public void putString(String key, String value) {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(key, value);
+        editor.commit();
+    }
+    public void putBoolen(String key, Boolean value) {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(key, value);
         editor.commit();
     }
 
@@ -30,8 +35,9 @@ public class MyShared_Class {
     }
 
 
-    public String get(String key) {
+    public String getString(String key) {
         return preferences.getString(key, "");
     }
+    public Boolean getBoolean(String key) {return preferences.getBoolean(key, false);}
 
 }
