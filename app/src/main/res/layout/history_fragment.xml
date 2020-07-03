@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:background="#FF9E80"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent">
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="History Fragment"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
         android:textSize="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lịch sử thanh toán:"
+        />
+    <ListView
+        android:id="@+id/lvBill"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
         />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -14,12 +14,12 @@ import java.util.List;
 
 
 
-public class CustomAdapter extends BaseAdapter {
+public class CustomAdapter_Room extends BaseAdapter {
     Context context;
     List<Room_Class> list_room;
     int layout;
 
-    public CustomAdapter(Context context, List<Room_Class> list_room, int layout) {
+    public CustomAdapter_Room(Context context, List<Room_Class> list_room, int layout) {
         this.context = context;
         this.list_room = list_room;
         this.layout = layout;

@@ -14,7 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.nckhproject.Class.CustomAdapter;
+import com.example.nckhproject.Class.CustomAdapter_Room;
 import com.example.nckhproject.Class.MyShared_Class;
 import com.example.nckhproject.Class.Room_Class;
 import com.example.nckhproject.Class.User_Class;
@@ -26,11 +26,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class A3Activity extends AppCompatActivity {
-    CustomAdapter customAdapter;
+    CustomAdapter_Room customAdapter;
     ListView listView;
     ArrayList<Room_Class> list_room;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -85,7 +84,7 @@ public class A3Activity extends AppCompatActivity {
     private void init() {
         myShared_class = new MyShared_Class(A3Activity.this);
         list_room = new ArrayList<>();
-        customAdapter = new CustomAdapter(A3Activity.this, list_room, R.layout.customlistbuilding);
+        customAdapter = new CustomAdapter_Room(A3Activity.this, list_room, R.layout.customlistbuilding);
         listView.setAdapter(customAdapter);
         Update();
 
