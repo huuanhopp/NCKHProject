@@ -11,6 +11,7 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.SortedList;
 
 import com.example.nckhproject.Activity.ContentlNotifyActivity;
 import com.example.nckhproject.Class.CustomAdapter_Notify;
@@ -28,7 +29,7 @@ import java.util.Collections;
 public class Notify_Fragment extends Fragment {
     View view;
     ListView lvNotify;
-    ArrayList<Notify_Class> list_Notify;
+    SortedList<Notify_Class> list_Notify;
     CustomAdapter_Notify customAdapter_notify;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     @Nullable
@@ -54,14 +55,49 @@ public class Notify_Fragment extends Fragment {
     }
 
     private void Init() {
-        list_Notify = new ArrayList<>();
+        list_Notify = new SortedList<Notify_Class>(Notify_Class.class, new SortedList.Callback<Notify_Class>() {
+            @Override
+            public int compare(Notify_Class o1, Notify_Class o2) {
+
+                return o2.getDate().compareTo(o1.getDate());
+            }
+
+            @Override
+            public void onChanged(int position, int count) {
+
+            }
+
+            @Override
+            public boolean areContentsTheSame(Notify_Class oldItem, Notify_Class newItem) {
+                return false;
+            }
+
+            @Override
+            public boolean areItemsTheSame(Notify_Class item1, Notify_Class item2) {
+                return false;
+            }
+
+            @Override
+            public void onInserted(int position, int count) {
+
+            }
+
+            @Override
+            public void onRemoved(int position, int count) {
+
+            }
+
+            @Override
+            public void onMoved(int fromPosition, int toPosition) {
+
+            }
+        });
         customAdapter_notify = new CustomAdapter_Notify(view.getContext(), list_Notify, R.layout.customnotify);
         lvNotify.setAdapter(customAdapter_notify);
         databaseReference.child("Notify").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 list_Notify.add(dataSnapshot.getValue(Notify_Class.class));
-                Collections.reverse(list_Notify);
                 customAdapter_notify.notifyDataSetChanged();
             }
 

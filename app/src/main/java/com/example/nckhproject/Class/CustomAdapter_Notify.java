@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.SortedList;
+
 import com.example.nckhproject.R;
 
 import java.util.Collections;
@@ -14,10 +16,10 @@ import java.util.List;
 
 public class CustomAdapter_Notify extends BaseAdapter {
     Context context;
-    List<Notify_Class> list_Notify;
+    SortedList<Notify_Class> list_Notify;
     int layout;
 
-    public CustomAdapter_Notify(Context context, List<Notify_Class> list_Notify, int layout) {
+    public CustomAdapter_Notify(Context context, SortedList<Notify_Class> list_Notify, int layout) {
         this.context = context;
         this.list_Notify = list_Notify;
         this.layout = layout;
