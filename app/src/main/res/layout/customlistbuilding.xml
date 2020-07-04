@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txtNameofRoom"
+            android:textColor="#0FA3E6"
+            android:layout_marginLeft="30dp"
+            android:textSize="40sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="301"
+            />
+        <TextView
+            android:id="@+id/txtPriceofRoom"
+            android:textColor="#FF3D00"
+            android:layout_marginLeft="30sp"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500.000 VNĐ/5 tháng"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/txtNumofRoom"
+        android:background="#D83CF3"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:textSize="30sp"
+        android:text="5/8"
+        />
+</LinearLayout>

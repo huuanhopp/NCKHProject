@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         myShared_class = new MyShared_Class(this);
-        if(myShared_class.get("Email").equals("") == false)
+        if(myShared_class.getString("Email").equals("") == false)
         {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
@@ -198,13 +198,18 @@ public class LoginActivity extends AppCompatActivity {
 
                 mUserName = user.displayName;
                 mUserEmail = user.mail == null ? user.userPrincipalName : user.mail;
-                User_Class user_class = new User_Class(mUserName, mUserEmail);
+                User_Class user_class = new User_Class(mUserName, mUserEmail, user.mobilePhone, user.streetAddress,null, null,false);
                 if(Check(list_user, user_class) == false)
                 {
                     databaseReference.child("User").push().setValue(user_class);
                 }
-                myShared_class.put("Name", user_class.getUser_Name());
-                myShared_class.put("Email", user_class.getUser_Email());
+                myShared_class.putString("Name", user_class.getUser_Name());
+                myShared_class.putString("Email", user_class.getUser_Email());
+                myShared_class.putString("Address", user_class.getUser_Address());
+                myShared_class.putString("PhoneNum", user_class.getUser_PhoneNum());
+                myShared_class.putString("Date_of_Registration", user_class.getUser_Date_of_Registration());
+                myShared_class.putString("Expiration_Date", user_class.getUser_Expiration_Date());
+                myShared_class.putBoolen("Active", user_class.getActive());
                 signOut();
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);

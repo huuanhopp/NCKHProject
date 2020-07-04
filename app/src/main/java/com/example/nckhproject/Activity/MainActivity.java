@@ -9,7 +9,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AlertDialog;
 import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -57,8 +59,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void Init() {
-        navUserEmail.setText(myShared_class.get("Email"));
-        navUserName.setText(myShared_class.get("Name"));
+        navUserEmail.setText(myShared_class.getString("Email"));
+        navUserName.setText(myShared_class.getString("Name"));
     }
 
     private void Listener() {
