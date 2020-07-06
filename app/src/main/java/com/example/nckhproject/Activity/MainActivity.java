@@ -9,22 +9,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.AlertDialog;
-import android.app.FragmentManager;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.nckhproject.Class.MyShared_Class;
 import com.example.nckhproject.Fragment.History_Fragment;
 import com.example.nckhproject.Fragment.Home_Fragment;
-import com.example.nckhproject.Fragment.Message_Fragment;
+import com.example.nckhproject.Fragment.Notify_Fragment;
 import com.example.nckhproject.Fragment.Profile_Fragment;
 import com.example.nckhproject.R;
 import com.google.android.material.navigation.NavigationView;
@@ -80,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         type = 2;
                         break;
                     case R.id.nav_buttom_message:
-                        selectedFragment = new Message_Fragment();
+                        selectedFragment = new Notify_Fragment();
                         type = 3;
                         break;
                     case R.id.nav_buttom_profile:

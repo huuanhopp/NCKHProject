@@ -1,20 +1,22 @@
 package com.example.nckhproject.Class;
 
 public class Notify_Class {
-    private String Time;
+    private String Date;
     private String Content;
+    private String Title;
 
-    public Notify_Class(String time, String content) {
-        Time = time;
+    public Notify_Class(String date, String content, String title) {
+        Date = date;
         Content = content;
+        Title = title;
     }
 
-    public String getTime() {
-        return Time;
+    public String getDate() {
+        return Date;
     }
 
-    public void setTime(String time) {
-        Time = time;
+    public void setDate(String date) {
+        Date = date;
     }
 
     public String getContent() {
@@ -23,6 +25,14 @@ public class Notify_Class {
 
     public void setContent(String content) {
         Content = content;
+    }
+
+    public String getTitle() {
+        return Title;
+    }
+
+    public void setTitle(String title) {
+        Title = title;
     }
 
     public Notify_Class() {
