@@ -19,7 +19,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.nckhproject.Class.MyShared_Class;
 import com.example.nckhproject.Fragment.History_Fragment;
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Toolbar toolbar;
     View headerView;
     TextView navUserName;
+    static String userEmail;
     TextView navUserEmail;
     ImageView navImgUser;
     MyShared_Class myShared_class;
@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void Init() {
         navUserEmail.setText(myShared_class.getString("Email"));
         navUserName.setText(myShared_class.getString("Name"));
+        userEmail = myShared_class.getString("Email");
     }
 
     private void Listener() {
@@ -171,12 +172,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.nav_report:
+                intent = new Intent(MainActivity.this, MessageAcitivity.class);
+                startActivity(intent);
+                break;
         }
 
         return true;
     }
-
-
-
-
 }

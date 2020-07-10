@@ -29,6 +29,7 @@
         <activity android:name=".Activity.ContentlNotifyActivity"></activity>
         <activity android:name=".Activity.A3Activity" />
         <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".Activity.MessageAcitivity" />
         <activity android:name=".Activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

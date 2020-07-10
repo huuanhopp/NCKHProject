@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/tools"
+    xmlns:app1="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:ignore="NamespaceTypo">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/barLayout">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="#00FFC3"
+            app:theme="@style/Base.CardView"
+            app1:popupTheme="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/user_profile_pic"
+                android:src="@drawable/logoutc"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ADMIN"
+                android:id="@+id/user_name"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:textSize="18sp"/>
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/chatRecycaleView"
+        android:layout_below="@+id/barLayout"
+        android:layout_above="@+id/bottom"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom"
+        android:padding="5dp"
+        android:background="#fff"
+        android:layout_alignParentBottom="true">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtSend"
+            android:layout_centerVertical="true"
+            android:hint="Type a message..."
+            android:background="@android:color/transparent"/>
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/btnSend"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/ic_action_name"/>
+    </RelativeLayout>
+
+</RelativeLayout>
