@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nckhproject.Class.MyShared_Class;
+import com.example.nckhproject.Class.Room_Class;
 import com.example.nckhproject.Class.User_Class;
 import com.example.nckhproject.R;
 import com.google.firebase.database.ChildEventListener;
@@ -27,6 +28,7 @@ import org.w3c.dom.Text;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -161,16 +163,57 @@ public class DetailRegisterActivity extends AppCompatActivity {
                 databaseReference.child("User").addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                        User_Class user_class = dataSnapshot.getValue(User_Class.class);
+                        final User_Class user_class = dataSnapshot.getValue(User_Class.class);
+                        final String keysnap = dataSnapshot.getKey();
                         if(user_class.getUser_Email().equals(myShared_class.getString("Email")) == true)
                         {
-                            user_class.setActive(false);
-                            user_class.setUser_Date_of_Registration("");
-                            databaseReference.child("User").child(dataSnapshot.getKey()).setValue(user_class);
-                            Toast.makeText(DetailRegisterActivity.this, "Hủy chọn phòng thành công!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(DetailRegisterActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            finish();
+                            databaseReference.child("Room").addChildEventListener(new ChildEventListener() {
+                                @Override
+                                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                                    Room_Class room_class = dataSnapshot.getValue(Room_Class.class);
+                                    if(room_class.getName().equals(tvName.getText().toString()) == true)
+                                    {
+                                        ArrayList<String> arrayList = new ArrayList<>();
+                                        for(String email: room_class.getPerson_Now())
+                                        {
+                                            if(email.equals(myShared_class.getString("Email")) == false)
+                                            {
+                                                arrayList.add(email);
+                                            }
+                                        }
+                                        room_class.setPerson_Now(arrayList);
+                                        databaseReference.child("Room").child(dataSnapshot.getKey()).setValue(room_class);
+                                        user_class.setActive(false);
+                                        user_class.setUser_Date_of_Registration("");
+                                        databaseReference.child("User").child(keysnap).setValue(user_class);
+                                        Toast.makeText(DetailRegisterActivity.this, "Hủy chọn phòng thành công!", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(DetailRegisterActivity.this, MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }
+
+                                @Override
+                                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                }
+
+                                @Override
+                                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                                }
+
+                                @Override
+                                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
                         }
                     }
 
