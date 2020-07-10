@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    tools:context=".Activity.DetailRegisterActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thông tin đăng ký phòng"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="28dp"
+        android:textColor="#243ED1"/>
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="16dp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Tên phòng:"
+            android:textColor="#111111"
+            />
+        <TextView
+            android:id="@+id/tv_NameRoom_Detail"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="101-A3"
+            android:textColor="#FF1744"
+            />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="16dp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Giá phòng:"
+            android:textColor="#111111"
+            />
+        <TextView
+            android:id="@+id/tv_PriceRoomDetail"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="101-A3"
+            android:textColor="#FF1744"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#002DFF"
+        android:textSize="16dp"
+        android:text="@string/content_register"/>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="#FF0000"
+        android:text="@string/warning"/>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="16dp"
+            android:textColor="#FF0000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ngày hết hạn đăng ký: "
+            />
+        <TextView
+            android:id="@+id/tv_Date_EX"
+            android:layout_marginLeft="20dp"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="101-A3"
+            android:textColor="#FF1744"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:id="@+id/btn_CancelRoomDetail"
+            android:background="@drawable/custom_btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hủy đăng ký"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false"
+            />
+        <Button
+            android:id="@+id/btn_BackDetail"
+            android:background="@drawable/custom_btn_accept"
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trở về"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false"
+            />
+    </LinearLayout>
+
+</LinearLayout>
