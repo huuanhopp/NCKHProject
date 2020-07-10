@@ -53,8 +53,5 @@
                 </com.google.android.material.bottomnavigation.BottomNavigationView>
             </LinearLayout>
         </LinearLayout>
-
-
     </LinearLayout>
-
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -9,12 +9,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.nckhproject.Class.MyShared_Class;
 import com.example.nckhproject.Fragment.History_Fragment;
@@ -22,8 +27,12 @@ import com.example.nckhproject.Fragment.Home_Fragment;
 import com.example.nckhproject.Fragment.Notify_Fragment;
 import com.example.nckhproject.Fragment.Profile_Fragment;
 import com.example.nckhproject.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.messaging.FirebaseMessaging;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -41,16 +50,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel("MyNotificationsNCKH","MyNotificationsNCKH", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+            Log.d("LOG","Nam Doe Zoia");
+        }
 
-
-
+        FirebaseMessaging.getInstance().subscribeToTopic("nckh")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "Successfull";
+                        if (!task.isSuccessful()) {
+                            msg = "Failse";
+                        }
+                        Log.d("AAA", msg);
+                    }
+                });
         myShared_class = new MyShared_Class(this);
         FramentManagerconstruction(new Home_Fragment());
         Anhxa();
         Nagavition();
         Listener();
         Init();
-
     }
 
     private void Init() {
@@ -139,12 +162,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Intent intent;
         switch (item.getItemId()) {
+            case R.id.nav_map:
+                intent = new Intent(this, MapsActivity.class);
+                startActivity(intent);
+                break;
             case R.id.nav_Logout:
                 myShared_class.clear();
                 intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
                 break;
-
         }
 
         return true;

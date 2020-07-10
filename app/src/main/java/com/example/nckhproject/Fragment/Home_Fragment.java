@@ -1,7 +1,5 @@
 package com.example.nckhproject.Fragment;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -50,7 +48,7 @@ public class Home_Fragment extends Fragment {
                 User_Class user_class = dataSnapshot.getValue(User_Class.class);
                 if(user_class.getUser_Email().equals(myShared_class.getString("Email")) == true)
                 {
-                    myShared_class.putBoolen("Active", user_class.getActive());
+//                    myShared_class.putBoolen("Active", user_class.getActive());
                 }
             }
 
